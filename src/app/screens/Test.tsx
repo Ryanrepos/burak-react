@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, {Component} from "react";
+import React, {Component, useEffect, useState} from "react";
 
 class Test extends Component {
     constructor(props) {
@@ -42,3 +42,22 @@ class Test extends Component {
   }
 
   export default Test;
+
+export default function Test() {
+
+  const [color, setcolor] = useState<string>(red);  // state
+ 
+  useEffect(() => {
+    console.log("componentDidMount");           // componentDidMount
+    return() => {
+      console.log("componentWillUnmount");      // componentWillUnmount
+    }
+  }, [value]);                                  // componentDidUpdate , array dependency
+
+  return (
+    <div>
+      <button>Change the value</button>
+    </div>
+  )
+
+}
