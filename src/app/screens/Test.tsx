@@ -59,5 +59,33 @@ export default function Test() {
       <button>Change the value</button>
     </div>
   )
-
 }
+
+// Child Component
+interface ChildProps {
+  name: string;
+  age: number;
+}
+
+const Child = (props: ChildProps) => {
+  return (
+    <div>
+      <p>Hi, my name is {props.name} and I am {props.age} years old!</p>
+    </div>
+  );
+};
+
+// Parent Component
+const Parent = () => {
+  const childName = "Alice";
+  const childAge = 6;
+
+  return (
+    <div>
+      <h1>Parent Component</h1>
+      <Child name={childName} age={childAge} />
+    </div>
+  );
+};
+
+export default Parent;
